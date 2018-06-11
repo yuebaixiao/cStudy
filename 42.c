@@ -53,6 +53,11 @@ int *(*hun1(int a))[]{
   
   return p;
 }
+int jun(int a, int b){
+  printf("a:%d,b:%d\n",a,b);
+  return a+b;
+}
+
 int main(){
   //指针数组，数组里是函数指针，指向的函数没有返回值，1个int参数
   void (*a[1])(int);
@@ -96,5 +101,15 @@ int main(){
   }
   free(p1);
 
-}
+  int (*j[1])(int,int);
+  j[0] = &jun;
+  (*j[0])(2,3);
 
+  int (*(*k)[2])(int,int);
+  k = (int*)malloc(sizeof(int*) * 2);
+  (*k)[0] = &jun;
+  (*k)[0](3,4);
+  (*k)[1] = &jun;
+  (*k)[1](30,42);
+  free(k);
+}
