@@ -47,5 +47,8 @@ int main(){
   char (*p2)[3000];
   printf("p2 sizeof = %ld\n", sizeof(p2));
 
+  char cr[] = {'a','b','\0','c',};
+  printf("cr strlen = %ld\n", strlen(cr));
+  printf("cr sizeof = %ld\n", sizeof(cr));
   
 }
