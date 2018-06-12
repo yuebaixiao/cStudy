@@ -33,4 +33,15 @@ int main(){
   char str7[10];
   printf("strlen = %ld\n", strlen(str7));
   printf("sizeof = %ld\n", sizeof(str7));
+
+  char *p = "hello C";
+  printf("strlen = %ld\n", strlen(p));
+  printf("sizeof = %ld\n", sizeof(p));
+
+  char *p1[3] = {"hello C","abcd","12345"};
+  printf("p1 strlen = %ld\n", strlen(*p1));
+  printf("p1 strlen = %ld\n", strlen(*(p1+1)));
+  printf("p1 strlen = %ld\n", strlen(*(p1+2)));
+  printf("p1 sizeof = %ld\n", sizeof(p));
+
 }
