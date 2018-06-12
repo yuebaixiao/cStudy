@@ -42,6 +42,10 @@ int main(){
   printf("p1 strlen = %ld\n", strlen(*p1));
   printf("p1 strlen = %ld\n", strlen(*(p1+1)));
   printf("p1 strlen = %ld\n", strlen(*(p1+2)));
-  printf("p1 sizeof = %ld\n", sizeof(p));
+  printf("p1 sizeof = %ld\n", sizeof(p1));
 
+  char (*p2)[3000];
+  printf("p2 sizeof = %ld\n", sizeof(p2));
+
+  
 }
