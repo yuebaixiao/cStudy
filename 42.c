@@ -30,6 +30,14 @@ int (*hun(int a))[]{
 
   return p;
 }
+int (*hun2(int a))[]{
+  int *p = (int*)malloc(sizeof(int) * a);
+  for(int i = 0; i < a; ++i){
+    p[i] = a+i;
+  }
+
+  return p;
+}
 int *(*hun1(int a))[]{
   int* (*p)[3] = (int*(*)[3])malloc(sizeof(int*[3]) * 2);
   int *w1 = (int*)malloc(sizeof(int));
@@ -57,7 +65,24 @@ int jun(int a, int b){
   printf("a:%d,b:%d\n",a,b);
   return a+b;
 }
-
+int** mun1(int* a){
+  int** p = (int**)malloc(sizeof(int*) * *a);
+  for(int i = 0; i < *a; ++i){
+    int *pi = (int*)malloc(sizeof(int));
+    *pi = i+11;
+    p[i] = pi;
+  }
+  return p;
+}
+int*(*nun(int* a))[]{
+  int** p = (int**)malloc(sizeof(int*) * *a);
+  for(int i = 0; i < *a; ++i){
+    int *pi = (int*)malloc(sizeof(int));
+    *pi = i+20;
+    p[i] = pi;
+  }
+  return p;
+}
 int main(){
   //指针数组，数组里是函数指针，指向的函数没有返回值，1个int参数
   void (*a[1])(int);
@@ -88,6 +113,13 @@ int main(){
     printf("\n");
   }
   free(p);
+  e[0] = &hun2;
+  int aa = 3;
+  int *pp = (*e[0])(aa);
+  for(int i = 0; i < aa; ++i){
+    printf("hun2 %d ", pp[i]);
+  }
+  printf("\n");
 
   //指针数组，数组里是函数指针，指向的函数的返回值是数组指针，数组里是int指针，1个int参数。  
   int *(*(*g[1])(int))[];
@@ -105,11 +137,30 @@ int main(){
   j[0] = &jun;
   (*j[0])(2,3);
 
-  int (*(*k)[2])(int,int);
-  k = (int*)malloc(sizeof(int*) * 2);
+  int (*(*k)[2])(int,int) = (int**)malloc(sizeof(int*) * 2);
+  //(*k)[2] = (int(*)[2])malloc(sizeof(int*[2]) * 2);
+  //  int (*p)[3] = (int(*)[3])malloc(sizeof(int[3]) * 2);
   (*k)[0] = &jun;
   (*k)[0](3,4);
   (*k)[1] = &jun;
   (*k)[1](30,42);
   free(k);
+
+  int*(*(*m)(int*))[];
+  m = &mun1;
+  int mi = 3;
+  int** mp = *m(&mi);
+  for(int i = 0; i < mi; ++i){
+    printf("mp[%d] = %d ", i, *mp[i]);
+    printf("mp+%d = %d ", i, **(mp+i));    
+  }
+  printf("\n");
+
+  int ni = 2;
+  int** np = nun(&ni);
+  for(int i = 0; i< ni; ++i){
+    printf("np[%d] = %d ", i, *np[i]);
+    printf("np+%d = %d ", i, **(np+i));    
+  }
+  printf("\n");
 }
