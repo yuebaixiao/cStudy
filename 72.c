@@ -42,7 +42,7 @@ int main(){
   int i1[] = {255,2,3,4,5};
   int i2[] = {511,22,23,5};
 
-  int res1 = my_memcmp(i1,i2,2);
+  int res1 = my_memcmp(i1,i2,1);
   if(0 == res1)
     printf("i1 == i2\n");
   else if(res1 > 0)
