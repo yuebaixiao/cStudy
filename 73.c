@@ -11,7 +11,7 @@ void* my_memcpy(void* dest, const void* src, size_t cnt){
 
 int main(){
   char s1[4] = {'a','f','r','t'};
-  char *s2 = "abcdasadfsdfsada";
+  char *s2 = "abcdef";
  
   char *s3 = memcpy(s1,s2,15);
   printf("s1 = [%s]\n", s1);
