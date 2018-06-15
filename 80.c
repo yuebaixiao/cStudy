@@ -12,11 +12,15 @@ typedef struct B{
 }B;
 
 int main(){
-  printf("A size = %d\n",sizeof(A));
-  printf("B size = %d\n",sizeof(B));
+  printf("A size = %ld\n",sizeof(A));
+  printf("B size = %ld\n",sizeof(B));
 
   B B1;
   B1.a = 10;
   B1.b = 12;
   B1.c = 'A';
+  B B2;
+  B2.a = 11;
+  B1.b = 13;
+  B1.c = 'B';
 }
