@@ -2,22 +2,22 @@
 
 typedef struct Test{
   int a;
-  long b;
-  char pc[0]; 
+  
+  char pc[]; 
 }Test;
 
 int main(){
+Test t;  
+  int a = 1;
+  long b = 2;
 
-  int a;
-  long b;
-  long c;
-  long dd;
-  char str[] = "1Hello c Hello c++!";
-  Test t;
+  char str[] = "a11111aaa";
+
   
-  long ee;
-  Test t1;
-  char str1[] = "2Hello c Hello c++!";  
+char c = 'a';
+
+  //char str1[] = "2Hello c Hello c++!";  
+  //Test t1;
   printf("%s\n",t.pc);
-  printf("%s\n",t1.pc);  
+  //printf("%s\n",t1.pc);  
 }
